@@ -27,9 +27,10 @@ export default function ListField (props) {
 
     const handleClick = async () => {
         setWarning('processing...')
+        // In a real application this would not be an array of strings but objects with their own ids and other associated info
         await Backend().addToList(props.field, input)
         setWarning('')
-        
+
         getField();
     } 
 
