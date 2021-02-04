@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import Backend from '../Backend/Backend';
 
+import ListItem from './ListItem';
+
 export default function ListField (props) {
     let [ list, setList ] = useState('');
     let [ input, setInput ] = useState('');
@@ -29,16 +31,14 @@ export default function ListField (props) {
 
     return (
         <div>
-            <span>{props.field}: {list}</span>
-            <span>
-                <input 
-                    type="text" 
-                    name={props.field}
-                    value={input}
-                    onChange={handleInputChange}/>
-                <button onClick={handleClick}>update</button>
-            </span>
-            <span>{warning}</span>
+            {list.map((item, index) => {
+                return(
+                    <ListItem
+                        key={index} 
+                        item={item}
+                    />
+                )
+            })}
         </div>
     )
 }
