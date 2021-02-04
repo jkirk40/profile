@@ -40,7 +40,7 @@ export default function BasicField (props) {
 
     return (
         <div>
-            <span>{props.field}: {info}</span>
+            <span>{props.field}: {info} -------------- </span>
             <span>
                 <input 
                     type="text" 
