@@ -41,6 +41,7 @@ export default function ListField (props) {
                     />
                 )
             })}
+            <p>{warning}</p>
         </div>
     )
 }
