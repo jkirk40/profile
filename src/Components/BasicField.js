@@ -4,6 +4,7 @@ import Backend from '../Backend/Backend';
 
 export default function BasicField (props) {
     let [ info, setInfo ] = useState([]);
+    let [ input, setInput ] = useState('')
 
     useEffect(() => {
         getField();
@@ -14,9 +15,26 @@ export default function BasicField (props) {
         setInfo(result)
     }
 
+    const handleInputChange = (event) => {
+        const target = event.target;
+        setInput(target.value);
+    }
+
+    const handleClick = async () => {
+
+    } 
+
     return (
         <div>
-            <p>{props.field}: {info}</p>
+            <span>{props.field}: {info}</span>
+            <span>
+                <input 
+                    type="text" 
+                    name={props.field}
+                    value={input}
+                    onChange={handleInputChange}/>
+                <button onClick={handleClick}>update</button>
+            </span>
         </div>
     )
 }
