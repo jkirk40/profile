@@ -26,7 +26,11 @@ export default function ListField (props) {
     }
 
     const handleClick = async () => {
-
+        setWarning('processing...')
+        await Backend().addToList(props.field, input)
+        setWarning('')
+        
+        getField();
     } 
 
     return (
@@ -41,6 +45,14 @@ export default function ListField (props) {
                     />
                 )
             })}
+            <div>
+                <input 
+                    type="text" 
+                    name={props.field}
+                    value={input}
+                    onChange={handleInputChange}/>
+                <button onClick={handleClick}>add item</button>
+            </div>
             <p>{warning}</p>
         </div>
     )

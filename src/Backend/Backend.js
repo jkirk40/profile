@@ -38,9 +38,18 @@ export default function Backend () {
         profile[field] = result;
     }
 
+    const addToList = async (field, item) => {
+        await new Promise((resolve, reject) => {
+            setTimeout(() => resolve("simulated delay complete"), 1500)
+        });
+
+        profile[field].push(item);
+    }
+
     return {
         getField: getField,
         setField: setField,
-        deleteFromList: deleteFromList
+        deleteFromList: deleteFromList,
+        addToList: addToList
     }
 }
