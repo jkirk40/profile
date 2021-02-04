@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Backend from '../Backend/Backend';
 
 export default function BasicField (props) {
-    let [ info, setInfo ] = useState([]);
+    let [ info, setInfo ] = useState('');
     let [ input, setInput ] = useState('');
     let [ warning, setWarning ] = useState('')
 
