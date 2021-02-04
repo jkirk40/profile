@@ -15,7 +15,17 @@ export default function Backend () {
         return profile[field];
     }
 
+    const setField = async (field, update) => {
+
+        await new Promise((resolve, reject) => {
+            setTimeout(() => resolve("simulated delay complete"), 1500)
+        });
+
+        profile[field] = update;
+    }
+
     return {
-        getField: getField
+        getField: getField,
+        setField: setField
     }
 }

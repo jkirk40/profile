@@ -21,7 +21,8 @@ export default function BasicField (props) {
     }
 
     const handleClick = async () => {
-
+        await Backend().setField(props.field, input)
+        getField();
     } 
 
     return (
