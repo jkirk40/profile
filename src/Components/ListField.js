@@ -5,7 +5,7 @@ import Backend from '../Backend/Backend';
 import ListItem from './ListItem';
 
 export default function ListField (props) {
-    let [ list, setList ] = useState('');
+    let [ list, setList ] = useState([]);
     let [ input, setInput ] = useState('');
     let [ warning, setWarning ] = useState('')
 
