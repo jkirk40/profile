@@ -1,4 +1,5 @@
 import BasicField from './Components/BasicField';
+import ListField from './Components/ListField';
 
 import './App.css';
 
@@ -10,6 +11,8 @@ function App() {
       <BasicField field="lastName"></BasicField>
       <BasicField field="phone"></BasicField>
       <BasicField field="email"></BasicField>
+      <ListField field="stations"></ListField>
+      <ListField field="transactions"></ListField>
     </div>
   );
 }
