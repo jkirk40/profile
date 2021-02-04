@@ -2,7 +2,9 @@ let profile = {
     firstName: 'Joe',
     lastName: 'Smith',
     phone: '555-5555',
-    email: 'fake@fake.com'
+    email: 'fake@fake.com',
+    stations: [ 'station 1', 'station 2'],
+    transactions: [ 'transaction 382', 'transacation 281']
 }
 
 export default function Backend () {
