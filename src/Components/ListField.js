@@ -34,7 +34,9 @@ export default function ListField (props) {
             {list.map((item, index) => {
                 return(
                     <ListItem
-                        key={index} 
+                        key={index}
+                        field={props.field}
+                        getField={getField} 
                         item={item}
                     />
                 )

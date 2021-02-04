@@ -26,8 +26,21 @@ export default function Backend () {
         profile[field] = update;
     }
 
+    const deleteFromList = async (field, item) => {
+        await new Promise((resolve, reject) => {
+            setTimeout(() => resolve("simulated delay complete"), 1500)
+        });
+
+        const result = profile[field].filter(function(element){ 
+            return element !== item; 
+        });
+
+        profile[field] = result;
+    }
+
     return {
         getField: getField,
-        setField: setField
+        setField: setField,
+        deleteFromList: deleteFromList
     }
 }
