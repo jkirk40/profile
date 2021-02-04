@@ -4,15 +4,18 @@ import Backend from '../Backend/Backend';
 
 export default function BasicField (props) {
     let [ info, setInfo ] = useState([]);
-    let [ input, setInput ] = useState('')
+    let [ input, setInput ] = useState('');
+    let [ warning, setWarning ] = useState('')
 
     useEffect(() => {
         getField();
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const getField = async() => {
+        setWarning('processing...')
         const result = await Backend().getField(props.field)
         setInfo(result)
+        setWarning('')
     }
 
     const handleInputChange = (event) => {
@@ -21,7 +24,10 @@ export default function BasicField (props) {
     }
 
     const handleClick = async () => {
+        setWarning('processing...')
         await Backend().setField(props.field, input)
+        setWarning('')
+
         getField();
     } 
 
@@ -36,6 +42,7 @@ export default function BasicField (props) {
                     onChange={handleInputChange}/>
                 <button onClick={handleClick}>update</button>
             </span>
+            <span>{warning}</span>
         </div>
     )
 }
